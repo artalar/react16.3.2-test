@@ -7,7 +7,7 @@ const COLORS = ['red', 'green', 'blue'];
 
 const DEFAULT_ELEMENTS = 30;
 
-const getNextIndex = currenIndex => (currenIndex < COLORS.length - 1 ? currenIndex + 1 : 0);
+const getNextIndex = currentIndex => (currentIndex < COLORS.length - 1 ? currentIndex + 1 : 0);
 
 const Button = styled.button`
   margin: 0.5rem;
