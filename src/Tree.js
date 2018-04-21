@@ -1,6 +1,6 @@
-import React from "react";
-import Type from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import Type from 'prop-types';
+import styled from 'styled-components';
 
 const Block = styled.div`
   margin: 3px;
@@ -21,21 +21,21 @@ const Container = styled.div`
 `;
 
 const Branch = ({ deep, color }) => (
-  <BlockContainer>{[...new Array(deep)].map(() => <Block color={color}/>)}</BlockContainer>
+  <BlockContainer>{[...new Array(deep)].map(() => <Block color={color} />)}</BlockContainer>
 );
 
 export class Tree extends React.Component {
   static propTypes = {
     deep: Type.number.isRequired,
-    total: Type.number.isRequired
+    total: Type.number.isRequired,
   };
 
   static defaultProps = {
     deep: 0,
-    total: 0
+    total: 0,
   };
 
-  mountLog = []
+  mountLog = [];
 
   render() {
     const { deep, total, color } = this.props;
@@ -43,7 +43,7 @@ export class Tree extends React.Component {
       <Container>
         <Branch deep={deep} color={color} />
         {deep !== 0 ? (
-          <Tree deep={deep - 1} total={total + deep - 1} color={color}/>
+          <Tree deep={deep - 1} total={total + deep - 1} color={color} />
         ) : (
           <BlockContainer>
             <span>
@@ -51,7 +51,7 @@ export class Tree extends React.Component {
             </span>
             <br />
             <span>
-              Time to mount: <strong>{Date.now() - window.start}</strong> ms
+              Time to render: <strong>{Date.now() - window.timeStartTest}</strong> ms
             </span>
           </BlockContainer>
         )}
